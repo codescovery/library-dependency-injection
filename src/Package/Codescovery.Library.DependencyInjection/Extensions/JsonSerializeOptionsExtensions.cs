@@ -38,7 +38,11 @@ namespace Codescovery.Library.DependencyInjection.Extensions
                 AllowTrailingCommas = true,
                 ReadCommentHandling = JsonCommentHandling.Skip,
                 DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+                Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+                Converters =
+                {
+                    new JsonStringEnumConverter()
+                }
             }, lifetime);
 
             return services;
