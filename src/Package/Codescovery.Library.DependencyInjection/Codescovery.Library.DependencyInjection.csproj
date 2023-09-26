@@ -10,10 +10,11 @@
 		<Description>A pack with some common dependency injection methods</Description>
 		<PackageProjectUrl>https://codescovery.com/nuget/packages/library-dependency-injection</PackageProjectUrl>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Codescovery.Library.Commons" Version="1.0.0-beta7" />
+		<PackageReference Include="Codescovery.Library.Commons" Version="1.0.0-beta8" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.4" />
 		<PackageReference Include="System.Text.Json" Version="7.0.2" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />

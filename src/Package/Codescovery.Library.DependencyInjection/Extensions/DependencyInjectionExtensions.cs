@@ -32,7 +32,7 @@ namespace Codescovery.Library.DependencyInjection.Extensions
         }
 
         public static IEnumerable<Type> GetAllAutoImportTypes(this IServiceCollection services,
-            Assembly assembly = null)
+            Assembly? assembly = null)
         {
             var persistedAssembly = assembly ?? Assembly.GetEntryAssembly();
             var types =  persistedAssembly?.GetTypes().Where(t => t.GetCustomAttribute<AutoImportAttribute>() != null)
@@ -40,7 +40,7 @@ namespace Codescovery.Library.DependencyInjection.Extensions
             return types;
         }
 
-        public static IServiceCollection AddServices(this IServiceCollection services, Assembly assembly = null)
+        public static IServiceCollection AddServices(this IServiceCollection services, Assembly? assembly = null)
         {
             var existingServicesTypes = services.GetAllAutoImportTypes(assembly);
             foreach (var serviceType in existingServicesTypes)

@@ -8,7 +8,5 @@ namespace Codescovery.Library.DependencyInjection.Test.Entities.Configurations;
 public class AppSettings:BaseAppSettings
 {
     [JsonPropertyName("timeSpanConfiguration")]
-    public TimeSpanConfiguration TimeSpanConfiguration { get; set; }
-    [ConfigurationKeyName("timeSpanConfiguration2WithDifferentName")]
-    public TimeSpanConfiguration TimeSpanConfiguration2 { get; set; }
+    public TimeSpanConfiguration? TimeSpanConfiguration { get; set; }
 }

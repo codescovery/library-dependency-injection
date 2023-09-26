@@ -13,22 +13,22 @@ namespace Codescovery.Library.DependencyInjection.Extensions
     public static class ConfigurationBuilderExtensions
     {
 
-        public static FolderPath GetCurrentDirectoryBasePath<T>(this T builder, params string[] paths)
+        public static FolderPath? GetCurrentDirectoryBasePath<T>(this T builder, params string[] paths)
             where T : IConfigurationBuilder
         {
             var pathsList = paths ?? new string[] { };
             var persistedPaths = pathsList.Prepend(Directory.GetCurrentDirectory());
-            return Path.Combine(persistedPaths.ToArray());
+            return Path.Combine(persistedPaths.ToArray()!)!;
         }
 
-        public static IConfigurationBuilder InitializeAppConfiguration<T>(this T builder, FolderPath basePath = null,
-            IReadOnlyList<JsonConfigurationSource> jsonConfigurationSources = null, bool addEnvironmentVariables = true, bool addCommandLineArgs = true, string[]? args=null)
+        public static IConfigurationBuilder InitializeAppConfiguration<T>(this T builder, FolderPath? basePath = null,
+            IReadOnlyList<JsonConfigurationSource>? jsonConfigurationSources = null, bool addEnvironmentVariables = true, bool addCommandLineArgs = true, string[]? args=null)
             where T : IConfigurationBuilder
 
         {
 
             if (!basePath.IsNullOrDefault() && !string.IsNullOrEmpty(basePath) && !string.IsNullOrWhiteSpace(basePath))
-                builder.SetBasePath(basePath);
+                builder.SetBasePath(basePath!);
 
             var persistedJsonConfigurationSources = jsonConfigurationSources ?? new List<JsonConfigurationSource>
                 { new() {Optional = true, Path = AppSettingsDefaultValues.DefaultAppSettingsFileName, ReloadOnChange = true}};

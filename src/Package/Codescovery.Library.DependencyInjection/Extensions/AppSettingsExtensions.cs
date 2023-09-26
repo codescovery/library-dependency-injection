@@ -24,7 +24,7 @@ namespace Codescovery.Library.DependencyInjection.Extensions
         }
         public static TAppSettings AddAppSettings<TAppSettings>(this IServiceCollection services, IConfiguration configuration,
             TAppSettings appSettings,
-            Func<IEnumerable<IOptionsChangeTokenSource<TAppSettings>>> optionsChangeTokenSourceBuilder = null,
+            Func<IEnumerable<IOptionsChangeTokenSource<TAppSettings>>>? optionsChangeTokenSourceBuilder = null,
             ServiceLifetime lifetime = ServiceLifetime.Singleton)
             where TAppSettings : BaseAppSettings
         {
@@ -51,7 +51,7 @@ namespace Codescovery.Library.DependencyInjection.Extensions
         }
 
         private static IEnumerable<IOptionsChangeTokenSource<TAppSettings>> CreateAppSettingsOptionsChangeTokenSources<TAppSettings>(this IConfiguration configuration,
-            Func<IEnumerable<IOptionsChangeTokenSource<TAppSettings>>> builder=null) where TAppSettings : BaseAppSettings
+            Func<IEnumerable<IOptionsChangeTokenSource<TAppSettings>>>? builder=null) where TAppSettings : BaseAppSettings
         {
             return builder?.Invoke()??Enumerable.Empty<IOptionsChangeTokenSource<TAppSettings>>();
         }

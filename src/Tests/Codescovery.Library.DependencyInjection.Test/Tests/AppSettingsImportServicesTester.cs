@@ -45,10 +45,6 @@ namespace Codescovery.Library.DependencyInjection.Test.Tests
                 TimeSpanConfiguration = new TimeSpanConfiguration
                 {
                     Minutes = 4
-                },
-                TimeSpanConfiguration2 = new TimeSpanConfiguration
-                {
-                    Minutes = 5
                 }
             });
             var serviceProvider = services.BuildServiceProvider();
